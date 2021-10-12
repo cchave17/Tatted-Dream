@@ -1,4 +1,6 @@
 from flask import Flask, render_template, url_for, request
+from tatted_dream.server.email.message import Message, construct_email
+from tatted_dream.server.email.send_email import send_email
 
 app = Flask(__name__)
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
@@ -11,7 +13,15 @@ def hello_world():
 
 @app.route("/bookAppointment", methods=["POST"])
 def book_appointment():
+    data = {}
     if request.method == "POST":
         data = request.form.to_dict()
-        print(data)
-    return "FORM SUBMITTED"
+
+        msg = Message(data).get_msg()
+        email_content = construct_email(msg)
+
+        send_email(email_content)
+
+    return render_template("index.html")
+
+

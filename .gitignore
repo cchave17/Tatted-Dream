@@ -8,6 +8,7 @@ __pycache__/
 .idea
 # C extensions
 *.so
+client_secret.json
 
 # Distribution / packaging
 .Python
@@ -130,3 +131,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# secrets
+.client_secret.json
+
