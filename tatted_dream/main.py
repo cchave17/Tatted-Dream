@@ -5,7 +5,7 @@ from tatted_dream.server.email.send_email import send_email
 app = Flask(__name__)
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
-# add comment
+
 @app.route("/")
 def hello_world():
     return render_template('index.html')
