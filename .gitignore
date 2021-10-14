@@ -10,6 +10,11 @@ __pycache__/
 *.so
 client_secret.json
 
+# Ignore pickles
+*.pickle
+**/*.pickle
+
+
 # Distribution / packaging
 .Python
 build/
